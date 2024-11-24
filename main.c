@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include "GestionDuJeu.h"
+#include "Sauvegarde.h"
 
 ////////////////////////////////
 // Nom du Sous-programme : sauvegardeScores
