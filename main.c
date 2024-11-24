@@ -1,113 +1,87 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
-#include <conio.h>
-
-#include "affichage.h"
+#include "affichageDuJeu.h"
 #include "gestionDuJeu.h"
-#include "sauvegarde.h"
+#include "sauvegardeDuJeu.h"
 
-
-int main(void) {
-
-    char plateau[17][17]={{0}};
-    char plateauPrec[17][17]={{0}};
-    int choix=0, dep=0, retour=0;
-
-    initialisationPlateau(plateau,4);
-    recopierTableau(plateau, plateauPrec);
-    refreshScreen(plateau);
-
-    Position barriere;
-    barriere.iFirst=7;
-    barriere.jFirst=8;
-    barriere.iLast=0;
-    barriere.jLast=0;
+int main() {
+    int choixMenu = 0;
+    int nbJoueurs = 0;
+    char plateau[17][17];
+    char carPion[4];
+    Quoridor jeu;
 
     do {
-        choix=getch();
-        switch(choix) {
+        system("CLS"); // Nettoyer l'écran
+        afficherMenu();
+        printf("\nEntrez votre choix : ");
+        scanf("%d", &choixMenu);
 
-            case '1':
-                gotoligcol(20,70);
-                printf("Déplacer point");
-            break;
-
-            case '2':
-                gotoligcol(20,60);
-                color(1,10);
-                printf("Positionner la premiere barriere et valider par v");
-                color(15,0);
-                gotoligcol(iToligne(barriere.iFirst),iToCol(barriere.jFirst));
-
-                //1ere barriere
+        switch (choixMenu) {
+            case 1:
+                // Nouvelle partie
+                printf("\nCombien de joueurs (2 ou 4) ? ");
                 do {
-                    dep=getch();
-                    placementPremiereBarriere(&barriere.iFirst, &barriere.jFirst, dep);
-                    gotoligcol(iToligne(barriere.iFirst),iToCol(barriere.jFirst));
-                } while (dep !='v');
-                printf("X");
-                gotoligcol(20,60);
-                color(1,10);
-                printf("Positionner la deuxieme barriere et valider par v");
-                color(15,0);
-                gotoligcol(iToligne(barriere.iFirst),iToCol(barriere.jFirst));
+                    scanf("%d", &nbJoueurs);
+                    if (nbJoueurs != 2 && nbJoueurs != 4) {
+                        printf("Nombre invalide. Veuillez saisir 2 ou 4 : ");
+                    }
+                } while (nbJoueurs != 2 && nbJoueurs != 4);
 
-                //2eme barriere
-                do {
-                    dep=getch();
-                    if (dep=='h' || dep=='b' || dep=='g' || dep=='d') retour = placementDeuxiemeBarriere(barriere.iFirst, barriere.jFirst, &barriere.iLast, &barriere.jLast, dep);
-                    if (retour==1) gotoligcol(iToligne(barriere.iLast),iToCol(barriere.jLast));
-                } while ((dep !='v') | (retour!=1));
-                printf("X");
+                caracterePion(nbJoueurs, carPion); // Demander les caractères des pions
+                initialiserPlateau(plateau, nbJoueurs, carPion); // Initialiser le plateau
+                jeu.NB_JOUEURS = nbJoueurs;
+                jeu.joueurActuel = 0; // Premier joueur
 
-                if (validerPositionBarrieres(plateau, barriere) == 1) {
-                    enregistrerBarrieres(plateau, plateauPrec, barriere);
-                    gotoligcol(23,70);
-                    color(4,6);
-                    printf("Barrieres positionnees");
-                    gotoligcol(24,70);
-                    printf("Appuyer sur une touche");
-                    color(15,0);
-                    getch();
-                }
-                else {
-                    gotoligcol(23,70);
-                    color(4,6);
-                    printf("Barrieres impossible");
-                    gotoligcol(24,70);
-                    printf("Appuyer sur une touche");
-                    color(15,0);
-                    getch();
-                }
-                refreshScreen(plateau);
-            break;
+                refreshScreen(plateau); // Afficher le plateau initial
+                printf("\nLa partie commence !\n");
 
-            case '4':
-                if (estTableauIdentique(plateauPrec, plateau)==0) {
-                    recopierTableau(plateauPrec,plateau);
-                    gotoligcol(23,70);
-                    color(4,6);
-                    printf("Action annulee");
-                    gotoligcol(24,70);
-                    printf("Appuyer sur une touche");
-                    getch();
-                    color(15,0);
+                // Lancer la partie
+                jouerPartie(&jeu, plateau, carPion);
+
+                break;
+
+            case 2:
+                // Reprendre une partie sauvegardée
+                if (chargerPartie(&jeu)) {
+                    initialiserPlateau(plateau, jeu.NB_JOUEURS, carPion);
+                    printf("\nPartie chargée avec succès !\n");
                     refreshScreen(plateau);
+                    jouerPartie(&jeu, plateau, carPion);
+                } else {
+                    printf("Aucune sauvegarde disponible.\n");
                 }
-                else {
-                    gotoligcol(23,70);
-                    color(4,6);
-                    printf("Annulation impossible");
-                    gotoligcol(24,70);
-                    printf("Appuyer sur une touche");
-                    color(15,0);
-                    getch();
-                    refreshScreen(plateau);
-                }
-            break;
+                break;
+
+            case 3:
+                // Afficher l'aide
+                system("CLS");
+                afficherAide();
+                printf("\nAppuyez sur une touche pour revenir au menu principal...\n");
+                getch();
+                break;
+
+            case 4:
+                // Afficher les scores
+                system("CLS");
+                printf("\n=== Scores des joueurs ===\n");
+                sauvegardeScores("scores.txt"); // Sauvegarder les scores
+                chargementScores("scores.txt"); // Charger et afficher les scores
+                printf("\nAppuyez sur une touche pour revenir au menu principal...\n");
+                getch();
+                break;
+
+            case 5:
+                // Quitter le jeu
+                quitterJeu();
+                break;
+
+            default:
+                printf("Choix invalide. Veuillez réessayer.\n");
+                break;
         }
-    } while (choix !='5');
+
+    } while (choixMenu != 5);
 
     return 0;
 }
