@@ -2,7 +2,7 @@
 #include <windows.h>
 #include <conio.h>
 #include "affichage.h"
-#include "gestionJeu.h"
+#include "GestionDuJeu.h"
 
 ////////////////////////////////
 // Nom du Sous-programme : afficherMenu 
