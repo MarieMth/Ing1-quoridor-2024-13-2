@@ -171,3 +171,14 @@ void annulerCoup(etatJeu *positionPion, char dernierCoup) {
         printf("Il n'y a aucun coup a annuler \n");
     }
 }
+/////////////////////////////////////
+// Nom du Sous-programme : passerTour
+// Role : lorsque le joueur joue et le demande il peut passer son tour
+////////////////////////////////////
+void passerTour (etatJeu *etatJeu) {
+        etatJeu->joueurActuel++;
+        if (etatJeu-> joueurActuel > NB_JOUEURS_MAX) {
+            etatJeu-> joueurActuel =0;
+        }
+        printf("Joueur %d c'est a votre tour de joueur :) \n", etatJeu->joueurActuel + 1);
+}
