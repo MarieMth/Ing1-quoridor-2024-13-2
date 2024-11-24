@@ -4,3 +4,8 @@ void caractere_pion (int nb_joueur, char* car_pion);
 void gotoligcol(int lig, int col);
 void Color(int couleurDuTexte,int couleurDeFond);
 void couleur();
+void afficherMenu(); 
+void afficherAide(); 
+void afficherScoresJoueurs(); 
+void quitterJeu(); 
+void afficherMenuPartie(); 
