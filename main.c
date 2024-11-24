@@ -17,6 +17,32 @@ void afficherMenu () {
     printf("4. Afficher le score des joueurs \n ");
     printf("5. Quitter le jeu \n ");
 }
+
+////////////////////////////////
+// Nom du Sous-programme : saisirPseudo
+// Role : Demande et affiche le pseudo de chaque joueur
+////////////////////////////////
+void saisirPseudo(int nb_joueurs) {
+    char pseudo1[20], pseudo2[20], pseudo3[20], pseudo4[20];
+    if (nb_joueurs == 2) {
+        printf("Saisissez le pseudo du joueur 1 : ");
+        scanf("%19s", pseudo1);  
+        printf("Saisissez le pseudo du joueur 2 : ");
+        scanf("%19s", pseudo2);
+        printf("Joueur 1: %s et joueur 2: %s\n", pseudo1, pseudo2);
+    } else if {
+        printf("Saisissez le pseudo du joueur 1 : ");
+        scanf("%19s", pseudo1);
+        printf("Saisissez le pseudo du joueur 2 : ");
+        scanf("%19s", pseudo2);
+        printf("Saisissez le pseudo du joueur 3 : ");
+        scanf("%19s", pseudo3);
+        printf("Saisissez le pseudo du joueur 4 : ");
+        scanf("%19s", pseudo4);
+        printf("Joueur 1: %s, joueur 2: %s,joueur 3: %s et joueur 4: %s\n", pseudo1, pseudo2, pseudo3, pseudo4);
+    }
+}
+
 ////////////////////////////////
 // Nom du Sous-programme : afficherAide
 // Role : afficher l'aide lorsque l'utilisateur le demande 
