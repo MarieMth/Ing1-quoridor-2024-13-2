@@ -1,8 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "GestionDuJeu.h"
-#include "Sauvegarde.h"
+#include "gestionDuJeu.h"
+#include "sauvegarde.h"
 
 ////////////////////////////////
 // Nom du Sous-programme : sauvegardeScores
@@ -60,9 +60,6 @@ void miseAJourScores(const char *fichierScoresJoueurs, int pointsGagnes, int gag
         printf("Joueur %d votre score est %d", JoueurActuel, pointsGagnes);
     }
 }
-
-#include <stdio.h>
-#include "sauvegarde.h"
 
 void sauvegarderPartie(Quoridor *jeu) {
     FILE *fichier = fopen("sauvegarde.txt", "w");
