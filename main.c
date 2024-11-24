@@ -325,6 +325,10 @@ void deplacement(int* i, int* j, int choix) {
     }
 }
 
+/////////////////////////////////////
+// Nom du Sous-programme : placementPremiereBarriere
+// Role : Permet aux joueurs de placer une barriere
+/////////////////////////////////////
 void placementPremiereBarriere(int* i, int* j, int choix) {
     switch(choix) {
 
@@ -366,7 +370,11 @@ void placementPremiereBarriere(int* i, int* j, int choix) {
     }
 }
 
-int placementDeuxiemeBarriere(int iFirst, int jFirst, int* iLast, int* jLast, int choix) {
+/////////////////////////////////////
+// Nom du Sous-programme : placementDeuxiemeBarriere
+// Role : Permet aux joueurs de placer une barriere
+/////////////////////////////////////
+void placementDeuxiemeBarriere(int iFirst, int jFirst, int* iLast, int* jLast, int choix) {
     switch(choix) {
 
         case 'h':
@@ -403,6 +411,10 @@ int placementDeuxiemeBarriere(int iFirst, int jFirst, int* iLast, int* jLast, in
     }
 }
 
+/////////////////////////////////////
+// Nom du Sous-programme : refreshScreen
+// Role : Permet aux joueurs de reactualiser l'écran 
+/////////////////////////////////////
 void refreshScreen(char plateau[17][17]) {
     system("CLS");
     afficheTitre();
