@@ -20,17 +20,6 @@ void gotoligcol( int lig, int col ) {
 }
 
 
-///////////////////////////////////////
-// Nom du sous-programme : color
-// Rôle : change la couleur du texte dans la console, ainsi que la couleur du fond pour la ligne
-// Compatibilité : Windows
-///////////////////////////////////////
-void color(int couleurDuTexte,int couleurDeFond) // fonction d'affichage de couleurs
-{
-    HANDLE H=GetStdHandle(STD_OUTPUT_HANDLE);
-    SetConsoleTextAttribute(H,couleurDeFond*16+couleurDuTexte);
-}
-
 
 ///////////////////////////////////////
 // Nom du sous-programme : afficheTitre
