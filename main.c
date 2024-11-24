@@ -61,6 +61,10 @@ void miseAJourScores(const char *fichierScoresJoueurs, int pointsGagnes, int gag
     }
 }
 
+//////////////////////////////
+// Nom du Sous-programme : sauvegarderPartie 
+// Role : Sauvegarde partie non terminée ou terminée dans un fichier pour que le joueur puisse la reprendre plus tard
+//////////////////////////////
 void sauvegarderPartie(Quoridor *jeu) {
     FILE *fichier = fopen("sauvegarde.txt", "w");
     if (fichier == NULL) {
@@ -88,6 +92,10 @@ void sauvegarderPartie(Quoridor *jeu) {
     fclose(fichier);
     printf("Partie sauvegardee !\n");}
 
+//////////////////////////////
+// Nom du Sous-programme : chargerPartie
+// Role : Reprend la partie précédente en gardant la position des pions, des barrieres ainsi que le nom de joueurs et leur scores
+//////////////////////////////
 int chargerPartie(Quoridor *jeu) {
     FILE *fichier = fopen("sauvegarde.txt", "r");
     if (fichier == NULL) {
