@@ -132,7 +132,6 @@ void couleur() {
 // Nom du sous-programme : caracterePion
 // Rôle : Demande et affiche le caractere choisi pour le pion de chaque joueur 
 ///////////////////////////////////////
-
 void caracterePion (int nbJoueur, char* carPion){ 
 nbJoueur = saisirJoueurs ();
 char carPion;
@@ -144,6 +143,24 @@ char carPion;
     carPion[i] = carPion;
   }
 }
+
+
+///////////////////////////////////////
+// Nom du sous-programme : positionPions
+// Rôle : Placement des pions au début de la partie en fonction du nombre de joueur 
+///////////////////////////////////////
+void positionPions (char plateau[17][17], int nbJoueurs{ 
+  if (nbJoueurs == 2) {  // si le nombre de joueurs est 2 on doit placer les pions l'un en face de l'autre
+    plateau[0][4] = '1';
+    plateau[8][4] = '2';
+  } else {  // si le nombre de joueurs est 4 on place un pion à chaque extrémité du plateau
+    plateau[0][0] = '1';
+    plateau[0][8] = '2';
+    plateau[8][0] = '3';
+    plateau[8][8] = '4';
+  }
+}
+
 
 void affichePlateau(char plateau[17][17]) {
     int i=0, j=0;
