@@ -5,7 +5,7 @@
 #define NB_COLONNES 9
 
 void positionPions (char plateau[17][17], int nb_joueurs);
-void caracterePion (int nb_joueur, char* car_pion);
+void caracterePion (int nb_joueur, char* carPion);
 void gotoligcol(int lig, int col);
 void Color(int couleurDuTexte,int couleurDeFond);
 void couleur();
@@ -18,6 +18,7 @@ void gotoligcol( int lig, int col );
 void color(int couleurDuTexte,int couleurDeFond);
 void afficheTitre();
 void afficheLabels();
+void initialiserPlateau(char plateau[17][17], carPion);
 void affichePlateau(char plateau[17][17]);
 void afficheMenuJeu();
 void afficheStatutJeu();
