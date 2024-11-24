@@ -53,7 +53,7 @@ int menuPartie () {
         scanf("%d", &choixTour);
         switch (choixTour) {
             case 1:
-                deplacementPion();
+                deplacerPion();
             break;
             case 2:
                 poserBarrieres();
