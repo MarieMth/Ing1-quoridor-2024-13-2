@@ -60,3 +60,61 @@ void miseAJourScores(const char *fichierScoresJoueurs, int pointsGagnes, int gag
         printf("Joueur %d votre score est %d", JoueurActuel, pointsGagnes);
     }
 }
+
+#include <stdio.h>
+#include "sauvegarde.h"
+
+void sauvegarderPartie(Quoridor *jeu) {
+    FILE *fichier = fopen("sauvegarde.txt", "w");
+    if (fichier == NULL) {
+        printf("Erreur lors de l'ouverture du fichier de sauvegarde.\n");
+        return;}
+
+    fprintf(fichier, "%d %d\n", jeu->NB_JOUEURS, jeu->joueurActuel);
+    
+    for (int i = 0; i < jeu->NB_JOUEURS; i++) {
+        fprintf(fichier, "%s %s %d %d %d\n",
+                jeu->joueurs[i].nom,
+                jeu->joueurs[i].couleur,
+                jeu->joueurs[i].x,
+                jeu->joueurs[i].y,
+                jeu->joueurs[i].barrieresRestantes);}
+
+    fprintf(fichier, "%d\n", jeu->nbBarrieres);
+    for (int i = 0; i < jeu->nbBarrieres; i++) {
+        fprintf(fichier, "%d %d %d %d\n",
+                jeu->barrieres[i].x1,
+                jeu->barrieres[i].y1,
+                jeu->barrieres[i].x2,
+                jeu->barrieres[i].y2);}
+
+    fclose(fichier);
+    printf("Partie sauvegardee !\n");}
+
+int chargerPartie(Quoridor *jeu) {
+    FILE *fichier = fopen("sauvegarde.txt", "r");
+    if (fichier == NULL) {
+        printf("Aucune sauvegarde disponible.\n");
+        return 0;}
+
+    fscanf(fichier, "%d %d\n", &jeu->NB_JOUEURS, &jeu->joueurActuel);
+
+    for (int i = 0; i < jeu->NB_JOUEURS; i++) {
+        fscanf(fichier, "%s %s %d %d %d\n",
+               jeu->joueurs[i].nom,
+               jeu->joueurs[i].couleur,
+               &jeu->joueurs[i].x,
+               &jeu->joueurs[i].y,
+               &jeu->joueurs[i].barrieresRestantes);}
+
+    fscanf(fichier, "%d\n", &jeu->nbBarrieres);
+    for (int i = 0; i < jeu->nbBarrieres; i++) {
+        fscanf(fichier, "%d %d %d %d\n",
+               &jeu->barrieres[i].x1,
+               &jeu->barrieres[i].y1,
+               &jeu->barrieres[i].x2,
+               &jeu->barrieres[i].y2);}
+
+    fclose(fichier);
+    printf("Partie chargée avec succès !\n");
+    return 1;}
