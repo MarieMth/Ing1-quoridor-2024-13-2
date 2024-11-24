@@ -4,84 +4,51 @@
 #include "gestionDuJeu.h"
 #include "sauvegardeDuJeu.h"
 
-int main() {
-    int choixMenu = 0;
-    int nbJoueurs = 0;
-    char plateau[17][17];
-    char carPion[4];
-    Quoridor jeu;
-
-    do {
-        system("CLS"); // Nettoyer l'écran
-        afficherMenu();
-        printf("\nEntrez votre choix : ");
-        scanf("%d", &choixMenu);
-
-        switch (choixMenu) {
-            case 1:
-                // Nouvelle partie
-                printf("\nCombien de joueurs (2 ou 4) ? ");
-                do {
-                    scanf("%d", &nbJoueurs);
-                    if (nbJoueurs != 2 && nbJoueurs != 4) {
-                        printf("Nombre invalide. Veuillez saisir 2 ou 4 : ");
-                    }
-                } while (nbJoueurs != 2 && nbJoueurs != 4);
-
-                caracterePion(nbJoueurs, carPion); // Demander les caractères des pions
-                initialiserPlateau(plateau, nbJoueurs, carPion); // Initialiser le plateau
-                jeu.NB_JOUEURS = nbJoueurs;
-                jeu.joueurActuel = 0; // Premier joueur
-
-                refreshScreen(plateau); // Afficher le plateau initial
-                printf("\nLa partie commence !\n");
-
-                // Lancer la partie
-                jouerPartie(&jeu, plateau, carPion);
-
-                break;
-
-            case 2:
-                // Reprendre une partie sauvegardée
-                if (chargerPartie(&jeu)) {
-                    initialiserPlateau(plateau, jeu.NB_JOUEURS, carPion);
-                    printf("\nPartie chargée avec succès !\n");
-                    refreshScreen(plateau);
-                    jouerPartie(&jeu, plateau, carPion);
-                } else {
-                    printf("Aucune sauvegarde disponible.\n");
-                }
-                break;
-
-            case 3:
-                // Afficher l'aide
-                system("CLS");
-                afficherAide();
-                printf("\nAppuyez sur une touche pour revenir au menu principal...\n");
-                getch();
-                break;
-
-            case 4:
-                // Afficher les scores
-                system("CLS");
-                printf("\n=== Scores des joueurs ===\n");
-                sauvegardeScores("scores.txt"); // Sauvegarder les scores
-                chargementScores("scores.txt"); // Charger et afficher les scores
-                printf("\nAppuyez sur une touche pour revenir au menu principal...\n");
-                getch();
-                break;
-
-            case 5:
-                // Quitter le jeu
-                quitterJeu();
-                break;
-
-            default:
-                printf("Choix invalide. Veuillez réessayer.\n");
-                break;
+int main () {
+  do {
+  	afficherMenu();
+  		if (choix == nouvelle partie) {
+         	nbJoueurs(int NB_JOUEURS);
+  			saisirPseudo(int nb_joueurs);
+  			caracterePion(int nb_joueur, char* carPion);
+  			intialisePlateau(char plateau[17][17], carPion);
+  			affichePlateau(char plateau[17][17]);
+  			zoneStockage (int nb_joueurs, int stockage[]);
+  			positionPions (char plateau[17][17], int nb_joueurs);
+  			refreshScreen(char plateau[17][17]);
+  			affichePlateau(char plateau[17][17]);
+  			jouerTour(char nom[4][50], int numeros[4], int nbJoueurs);
+  			afficherMenuPartie();
+  				if (choix == deplacerPion) {
+                    gotoligcol( int lig, int col );
+					deplacement(int* i, int* j, int choix);
+            	} else if (choix == poserBarrieres) {
+					placementPremiereBarriere(int* i, int* j, int choix);
+					placementDeuxiemeBarriere(int iFirst, int jFirst, int* iLast, int* jLast, int choix);
+                    afficheBarriereV(char plateau[17][17]);
+					afficheBarriereH(char plateau[17][17]);
+            	} else if (choix == passerTour) {
+                  	passerTour(etatJeu *etatJeu);
+            	} else if (choix == annulerCoup) {
+                  	annulerCoup (etatJeu *positionPion, dernierCoup);
+            	} else
+              	printf("Choisir une action parmi celles proposees \n");
+            	}
+                refreshScreen(char plateau[17][17]);
+    	} else if (choix == sauvegarder partie) {
+          sauvegarderPartie(Quoridor *jeu);
+		} else if (choix == afficherAide){
+          afficherAide();
+        } else if (choix == miseAJourScores){
+          miseAJourScores (const char *fichierScoresJoueurs, pointsGagnes, gagne);
+        } else if (choix == quitterJeu) {
+          quitterJeu();
+        } else {
+           printf("Choix incorrecte, veuillez reessayer en selectionnant une option valide : \n");
+            scanf("%d", &choixDuJoueur);
         }
-
-    } while (choixMenu != 5);
-
-    return 0;
-}
+		jouerTour(char nom[4][50], int numeros[4], int nbJoueurs);
+        afficherMenu();
+    }
+  } while (choix menu!= 5 || ni !=16);
+return 0; 
