@@ -185,3 +185,83 @@ void passerTour (etatJeu *etatJeu, NB_JOUEURS_MAX) {
         }
         printf("Joueur %d c'est a votre tour de joueur :) \n", etatJeu->joueurActuel + 1);
 }
+///////////////////////////////////////
+// Nom du sous-programme : peutDeplacer
+// Rôle : Vérifie si un déplacement est valide
+// In : plateau : tableau du plateau de jeu
+//      i, j : position actuelle du pion
+//      direction : direction du déplacement ('h', 'b', 'g', 'd')
+// Out : 1 si le déplacement est valide, 0 sinon
+///////////////////////////////////////
+int peutDeplacer(char plateau[17][17], int i, int j, char direction) {
+    switch (direction) {
+        case 'h': 
+            return (i > 1 && plateau[i-2][j] == 0 && plateau[i-1][j] != 5);
+        case 'b': 
+            return (i < 15 && plateau[i+2][j] == 0 && plateau[i+1][j] != 5);
+        case 'g': 
+            return (j > 1 && plateau[i][j-2] == 0 && plateau[i][j-1] != 5);
+        case 'd': 
+            return (j < 15 && plateau[i][j+2] == 0 && plateau[i][j+1] != 5);
+    }
+    return 0;
+}
+
+///////////////////////////////////////
+// Nom du sous-programme : peutSauter
+// Rôle : Vérifie si un saut par-dessus un autre pion est valide
+// In : plateau : tableau du plateau de jeu
+//      i, j : position actuelle du pion
+//      direction : direction du saut ('h', 'b', 'g', 'd')
+// Out : 1 si le saut est valide, 0 sinon
+///////////////////////////////////////
+int peutSauter(char plateau[17][17], int i, int j, char direction) {
+    switch (direction) {
+        case 'h': 
+            return (i > 3 && plateau[i-2][j] != 0 && plateau[i-4][j] == 0 && plateau[i-3][j] != 5);
+        case 'b': 
+            return (i < 13 && plateau[i+2][j] != 0 && plateau[i+4][j] == 0 && plateau[i+3][j] != 5);
+        case 'g': 
+            return (j > 3 && plateau[i][j-2] != 0 && plateau[i][j-4] == 0 && plateau[i][j-3] != 5);
+        case 'd': 
+            return (j < 13 && plateau[i][j+2] != 0 && plateau[i][j+4] == 0 && plateau[i][j+3] != 5);
+    }
+    return 0;
+}
+
+///////////////////////////////////////
+// Nom du sous-programme : deplacerPion
+// Rôle : Déplace un pion sur le plateau
+// In : plateau : tableau du plateau de jeu
+//      i, j : position actuelle du pion
+//      direction : direction du déplacement ('h', 'b', 'g', 'd')
+// Out : 1 si le déplacement a été effectué, 0 sinon
+///////////////////////////////////////
+int deplacerPion(char plateau[17][17], int* i, int* j, char direction) {
+    int ni = *i, nj = *j;
+
+    if (peutDeplacer(plateau, ni, nj, direction)) {
+        switch (direction) {
+            case 'h': ni -= 2; break;
+            case 'b': ni += 2; break;
+            case 'g': nj -= 2; break;
+            case 'd': nj += 2; break;
+        }
+    } else if (peutSauter(plateau, ni, nj, direction)) {
+        switch (direction) {
+            case 'h': ni -= 4; break;
+            case 'b': ni += 4; break;
+            case 'g': nj -= 4; break;
+            case 'd': nj += 4; break;
+        }
+    } else {
+        return 0; // Déplacement non valide
+    }
+
+    // Mise à jour du plateau
+    plateau[*i][*j] = 0;
+    plateau[ni][nj] = plateau[*i][*j];
+    *i = ni;
+    *j = nj;
+    return 1;
+}
