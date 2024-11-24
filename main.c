@@ -97,6 +97,12 @@ void comptageBarrieres(int joueur, int stockage[], int nb_joueurs) {
     }
 }
 
+void nbJoueurs(int NB_JOUEURS) {
+    do {
+        printf("nombre de joueurs: ");
+        scanf("%d", &NB_JOUEURS);
+    }while (NB_JOUEURS != 2 || NB_JOUEURS != 4);}
+
 void initialisationPlateau(char plateau[17][17], char nbJoueurs) {
     for (int i=0; i<17; i++)
         for (int j=0; j<17; j++) {
