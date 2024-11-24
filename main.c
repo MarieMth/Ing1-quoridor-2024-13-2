@@ -19,6 +19,19 @@ void zoneStockage (int nbJjoueurs, int stockage[]) { //zone de stockage attribu�
   }
 }
 
+///////////////////////////////////////
+// Nom du sous-programme : comptageBarrieres
+// Rôle : Compte le nombre de barriere dans la zone de stockage pour vérifier que le joueur a assez de barrieres pour en placer une
+///////////////////////////////////////
+void comptageBarrieres(int joueur, int stockage[], int nb_joueurs) {  
+    if (stockage[joueur] > 0) {
+        stockage[joueur]--; 
+        printf("Le joueur %d a postionné une barrière. Il lui reste %d barrieres\n", joueur + 1, stockage[joueur]);
+    } else {
+        printf("Le joueur %d n'a plus de barrieres dans sa zone de stockage\n", joueur + 1);
+    }
+}
+
 void initialisationPlateau(char plateau[17][17], char nbJoueurs) {
     for (int i=0; i<17; i++)
         for (int j=0; j<17; j++) {
