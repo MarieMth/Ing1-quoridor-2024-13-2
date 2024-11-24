@@ -256,14 +256,6 @@ int deplacerPion(char plateau[17][17], int* i, int* j, char direction) {
         }
     } else {
         return 0; // Déplacement non valide
-        
-    if (ni == 16) {   //Victoire du joueur 
-        printf ("Le joueur a gagne !\n");
-        return 2;       //Gagne si il s'est déplacé de 16 cases à droite ou à gauche
-    } else {
-        return 1;       //Si il ne s'est pas déplacé de 16 cases alors le déplecément est validé
-    }
-    }
 
     // Mise à jour du plateau
     plateau[*i][*j] = 0;
@@ -271,4 +263,11 @@ int deplacerPion(char plateau[17][17], int* i, int* j, char direction) {
     *i = ni;
     *j = nj;
     return 1;
+    
+    if (ni == 16) {   //Victoire du joueur 
+        printf ("Le joueur a gagne !\n");
+        return 2;       //Gagne si il s'est déplacé de 16 cases à droite ou à gauche
+    } else {
+        return 1;       //Si il ne s'est pas déplacé de 16 cases alors le déplecément est validé
+    }
 }
