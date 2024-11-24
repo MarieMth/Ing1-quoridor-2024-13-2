@@ -43,7 +43,7 @@ void miseAJourScores(const char *fichierScoresJoueurs, int pointsGagnes, int gag
     nbJoueurs(NB_JOUEURS); 
     printf("\n===%c Scores des joueurs %c===\n ", 0x03, 0x03);
     if(joueursActuel=gagne) {
-            pointsgagnes =5;
+        pointsgagnes =5;
     }
     else {
         pointsGagnes =0;
