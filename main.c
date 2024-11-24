@@ -53,7 +53,6 @@ void afficheLabels() {
 ///////////////////////////////////////
 // Nom du sous-programme : couleur
 // Rôle : Affiche la couleur des cases, barrieres et pions 
-// In : plateau : tableau qui correspond aux valeurs du plateau
 ///////////////////////////////////////
 void couleur() { 
   int choix_cases, choix_barrieres, choix_pions;
@@ -74,7 +73,21 @@ void couleur() {
   Color (choix_cases, choix_barrieres, choix_pions);
 }
 
-
+///////////////////////////////////////
+// Nom du sous-programme : caracterePion
+// Rôle : Demande et affiche le caractere choisi pour le pion de chaque joueur 
+///////////////////////////////////////
+void caracterePion (int nb_joueur, char* car_pion){ 
+nb_joueur = saisirJoueur ()
+char car_pion;
+  for (int i=0; i<nb_joueur; i++) {
+    do {
+      printf ("Saisissez le caractere de votre pion dans la table ANSI:");
+      scanf("%c", &car_pion);
+    } while (car_pion <33 || car_pion >127);
+    car_pions[i] = car_pion;
+  }
+}
 
 ///////////////////////////////////////
 // Nom du sous-programme : affichePlateau
