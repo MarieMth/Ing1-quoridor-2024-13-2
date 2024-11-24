@@ -105,6 +105,16 @@ void afficheLabels() {
 }
 
 
+///////////////////////////////////////
+// Nom du sous-programme : COLOR
+// Rôle : change la couleur du texte dans la console, ainsi que la couleur du fond pour la ligne
+// Compatibilité : Xindows
+///////////////////////////////////////
+void Color(int couleurDuTexte,int couleurDeFond) // fonction d'affichage de couleurs
+{
+HANDLE H=GetStdHandle(STD_OUTPUT_HANDLE);
+SetConsoleTextAttribute(H,couleurDeFond*16+couleurDuTexte);
+}
 
 ///////////////////////////////////////
 // Nom du sous-programme : couleur
