@@ -3,6 +3,7 @@
 #include <string.h>
 #include "GestionDuJeu.h"
 #include "Sauvegarde.h"
+#include "affichage.h"
 
 
 /////////////////////////////////////
