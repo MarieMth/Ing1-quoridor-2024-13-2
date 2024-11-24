@@ -101,12 +101,20 @@ void comptageBarrieres(int joueur, int stockage[], int nb_joueurs) {
     }
 }
 
+/////////////////////////////////////
+// Nom du Sous-programme : nbJoueurs
+// Role : permet au joueurs de choisir si ils font une partie à 2 ou à 4 joueurs
+/////////////////////////////////////
 void nbJoueurs(int NB_JOUEURS) {
     do {
         printf("nombre de joueurs: ");
         scanf("%d", &NB_JOUEURS);
     }while (NB_JOUEURS != 2 || NB_JOUEURS != 4);}
 
+/////////////////////////////////////
+// Nom du Sous-programme : intitialisationPlateau
+// Role : Le plateau s'initialise, le placement des pions et des barrières est supprimé ce qui est utile lors du lancement d'une nouvelle partie
+/////////////////////////////////////
 void initialisationPlateau(char plateau[17][17], char nbJoueurs) {
     for (int i=0; i<17; i++)
         for (int j=0; j<17; j++) {
@@ -124,6 +132,10 @@ void initialisationPlateau(char plateau[17][17], char nbJoueurs) {
     }
 }
 
+/////////////////////////////////////
+// Nom du Sous-programme : validerPositionBarrieres
+// Role : Permet aux joueurs de placer leur barrières uniquement sur les endroits autorisés c'est-à-dire entre les cases du plateau
+/////////////////////////////////////
 int validerPositionBarrieres(char plateau[17][17], Position barriere) {
     if ((plateau[barriere.iFirst][barriere.jFirst]==5) || (plateau[barriere.iLast][barriere.jLast]==5)){
         return 0;
@@ -131,14 +143,20 @@ int validerPositionBarrieres(char plateau[17][17], Position barriere) {
     else return 1;
 }
 
-
+/////////////////////////////////////
+// Nom du Sous-programme : enregistrerBarrieres
+// Role : Permet d'afficher le plateau avec le placement des barrières qui a été fait par le joueur
+/////////////////////////////////////
 void enregistrerBarrieres(char plateau[17][17], char plateauPrec[17][17], Position barriere) {
     recopierTableau(plateau, plateauPrec);
     plateau[barriere.iFirst][barriere.jFirst]=5;
     plateau[barriere.iLast][barriere.jLast]=5;
 }
 
-
+/////////////////////////////////////
+// Nom du Sous-programme : recopierTableau
+// Role : Permet de copier le plateau
+/////////////////////////////////////
 void recopierTableau(char plateauARecopier[17][17], char plateau[17][17]) {
     int i,j;
     for (i=0;i<17;i++) {
@@ -147,7 +165,6 @@ void recopierTableau(char plateauARecopier[17][17], char plateau[17][17]) {
         }
     }
 }
-
 
 // envoie 0 si le tableau est différent
 int estTableauIdentique(char plateau1[17][17], char plateau2[17][17]) {
@@ -279,7 +296,10 @@ int deplacerPion(char plateau[17][17], int* i, int* j, char direction) {
     }
 }
 
-//fonction qui reeafiche 
+/////////////////////////////////////
+// Nom du Sous-programme : Afficher le menu de la partie
+// Role : permet au joueur de choisir ce qu'il souhaite faire 
+/////////////////////////////////////
 void afficherMenuPartie(char plateau[17][17], int* i, int* j) {
     int choixTour;
     char direction;
