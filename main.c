@@ -27,18 +27,7 @@ void afficherAide ()  {
     printf("--> Il est possible afin de bloquer son/ ses adversaires de poser des barrieres entre deux blocs de case de maniere verticale ou horizontale, cela est uniquement possible si vous disposez encore des barrieres dans votre zone de stockage <--\n");
     printf("--> Le premier joueur a arriver au bord oppose du plateau a celui de depart remporte la partie <--\n");
 }
-///////////////////////////////
-// Nom du Sous-programme : afficherScoresJoueurs
-// Role : affiche le score des joueurs de la partie en cours
-///////////////////////////////
-void afficherScoresJoueurs  () {
-    printf("\n===%c Scores des joueurs %c===\n ", 0x03, 0x03);
-    for (int i = 0; i<NB_JOUEURS; i++) {
-        int score_joueurs[i];
-        printf("Joueur %d : Vous avez remporte %d points pour cette partie  \n ", score_joueurs[i], i);
-        scanf("%d", &score_joueurs[i]);
-    }
-}
+
 ////////////////////////////////
 // Nom du Sous-programme : quitterJeu
 // Role : permet de quitter le jeu 
