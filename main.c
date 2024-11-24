@@ -4,6 +4,62 @@
 #include "affichage.h"
 #include "gestionJeu.h"
 
+////////////////////////////////
+// Nom du Sous-programme : afficherMenu 
+// Role : afficher le Menu principal du Jeu 
+////////////////////////////////
+void afficherMenu () {
+    printf("\n===%c Menu Principal du Jeu Quoridor %c===\n", 0x03, 0x03);
+    printf("1. Lancer une nouvelle partie\n ");
+    printf("2. Reprendre une partie sauvegardee \n ");
+    printf("3. Afficher l'aide \n ");
+    printf("4. Afficher le score des joueurs \n ");
+    printf("5. Quitter le jeu \n ");
+}
+////////////////////////////////
+// Nom du Sous-programme : afficherAide
+// Role : afficher l'aide lorsque l'utilisateur le demande 
+////////////////////////////////
+void afficherAide ()  {
+    printf("\n===%c Aide %c===\n ", 0x03, 0x03);
+    printf("--> Le but du jeu est d'atteindre le cote oppose du plateau en premier <-- \n");
+    printf("--> Vous pouvez deplacer votre pion verticalement ou horizontalement, en avant ou en arriere si aucune barriere ne bloque votre chemin sinon vous rejouez <-- \n");
+    printf("--> Il est possible afin de bloquer son/ ses adversaires de poser des barrieres entre deux blocs de case de maniere verticale ou horizontale, cela est uniquement possible si vous disposez encore des barrieres dans votre zone de stockage <--\n");
+    printf("--> Le premier joueur a arriver au bord oppose du plateau a celui de depart remporte la partie <--\n");
+}
+///////////////////////////////
+// Nom du Sous-programme : afficherScoresJoueurs
+// Role : affiche le score des joueurs de la partie en cours
+///////////////////////////////
+void afficherScoresJoueurs  () {
+    printf("\n===%c Scores des joueurs %c===\n ", 0x03, 0x03);
+    for (int i = 0; i<NB_JOUEURS; i++) {
+        int score_joueurs[i];
+        printf("Joueur %d : Vous avez remporte %d points pour cette partie  \n ", score_joueurs[i], i);
+        scanf("%d", &score_joueurs[i]);
+    }
+}
+////////////////////////////////
+// Nom du Sous-programme : quitterJeu
+// Role : permet de quitter le jeu 
+////////////////////////////////
+void quitterJeu ()  {
+    printf("-- Merci d'avoir joue au Jeu du Quoridor --\n");
+    printf("\n A bientot !\n");
+}
+/////////////////////////////////
+// Nom du Sous-programme : afficherMenuPartie 
+// Role : affiche un menu entre le tour de chaque joueur afin de lui proposer les actions possibles
+////////////////////////////////
+void afficherMenuPartie () {
+    struct joueurs Joueurs[NB_JOUEURS];
+    printf("Joueur %d c'est à votre tour de jouer \n", etatJeu -> joueurActuel+1);
+    printf("Que choisissez vous de faire ? : \n");
+    printf("1. Déplacer votre pion \n");
+    printf("2. Poser une barriere \n");
+    printf("3. Passer son tour \n");
+    printf("4. Annuler le dernier coup effectue sur le plateau \n");
+}
 
 
 
