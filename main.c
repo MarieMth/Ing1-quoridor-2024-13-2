@@ -145,51 +145,49 @@ char carPion;
   }
 }
 
-///////////////////////////////////////
-// Nom du sous-programme : affichePlateau
-// Rôle : Affiche lecontenu du plateau
-// In : plateau : tableau qui correspond aux valeurs du plateau
-///////////////////////////////////////
 void affichePlateau(char plateau[17][17]) {
     int i=0, j=0;
     int ligne=7;
     for(i=0; i<17; i=i+2) {
         for(j=0; j<17; j=j+2) {
-            gotoligcol(i+ligne,j*2+4);
+            gotoligcol(i+ligne, j*2+4);
+            
+            // Gestion de l'affichage du pion en fonction de la valeur dans le plateau
             switch(plateau[i][j]) {
                 case 0:
-                    color(15,0);
-                    printf("%c", 0xDB);
-                break;
+                    color(15,0);  // Blanc sur fond noir pour une case vide
+                    printf("%c", 0xDB);  // Affichage d'un bloc pour une case vide
+                    break;
 
                 case 1:
-                    color(0,9);
-                    printf("%c", 0x03); //coeur
-                break;
+                    color(0,9);  // Bleu pour le pion du joueur 1
+                    printf("%c", plateau[i][j]);  // Affichage du caractère du joueur 1
+                    break;
 
                 case 2:
-                    color(0,10);
-                    printf("%c", 0x04); //carreau
-                break;
+                    color(0,10);  // Vert pour le pion du joueur 2
+                    printf("%c", plateau[i][j]);  // Affichage du caractère du joueur 2
+                    break;
 
                 case 3:
-                    color(0,13
-                        );
-                    printf("%c", 0x05); //trefle
-                break;
+                    color(0,13);  // Violet pour le pion du joueur 3
+                    printf("%c", plateau[i][j]);  // Affichage du caractère du joueur 3
+                    break;
 
                 case 4:
-                    color(0,6);
-                    printf("%c", 0x06); // pique
-                break;
+                    color(0,6);  // Jaune pour le pion du joueur 4
+                    printf("%c", plateau[i][j]);  // Affichage du caractère du joueur 4
+                    break;
 
+                default:
+                    color(15, 0);  // Par défaut, blanc sur fond noir
+                    printf("%c", plateau[i][j]);  // Affichage des autres caractères (les pions)
+                    break;
             }
-
         }
-        color(15,0);
+        color(15,0);  // Réinitialisation de la couleur pour chaque ligne
     }
 }
-
 void initialiserPlateau(char plateau[17][17], int nbJoueurs, char carPion[]) {
     // Initialisation du plateau avec des cases vides (0)
     for (int i = 0; i < 17; i++) {
