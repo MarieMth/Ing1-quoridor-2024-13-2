@@ -1,8 +1,8 @@
 #ifndef AFFICHAGE_H
 #define AFFICHAGE_H
 
-void position_pions (char plateau[17][17], int nb_joueurs);
-void caractere_pion (int nb_joueur, char* car_pion);
+void positionPions (char plateau[17][17], int nb_joueurs);
+void caracterePion (int nb_joueur, char* car_pion);
 void gotoligcol(int lig, int col);
 void Color(int couleurDuTexte,int couleurDeFond);
 void couleur();
