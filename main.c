@@ -143,15 +143,15 @@ void couleur() {
 // Nom du sous-programme : caracterePion
 // Rôle : Demande et affiche le caractere choisi pour le pion de chaque joueur 
 ///////////////////////////////////////
-void caracterePion (int nb_joueur, char* car_pion){ 
-nb_joueur = saisirJoueurs ()
-char car_pion;
-  for (int i=0; i<nb_joueur; i++) {
+void caracterePion (int nbJoueur, char* carPion){ 
+nbJoueur = saisirJoueurs ()
+char carPion;
+  for (int i=0; i<nbJoueur; i++) {
     do {
       printf ("Saisissez le caractere de votre pion dans la table ANSI:");
-      scanf("%c", &car_pion);
+      scanf("%c", &carPion);
     } while (car_pion <33 || car_pion >127);
-    car_pions[i] = car_pion;
+    carPions[i] = carPion;
   }
 }
 
