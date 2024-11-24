@@ -46,6 +46,7 @@ int estTableauIdentique(char plateau1[17][17], char plateau2[17][17]);
 void jouerTour(char nom[4][50], int numeros[4], int nbJoueurs);
 int Menu (choixDuJoueur, nbJoueurs);
 int menuPartie(choixTour);
+void nouvellePartie(int nbJoueurs);
 void passerTour(etatJeu *etatJeu);
 void annulerCoup (etatJeu *positionPion, dernierCoup);
 
