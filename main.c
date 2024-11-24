@@ -8,7 +8,7 @@
 /////////////////////////////////////
 int Menu () ; {
     int choixDuJoueur;
-    int nombreJoueurs;
+    int nbJoueurs;
     do {
         afficherMenu();
         printf("Entrer votre choix : \n");
