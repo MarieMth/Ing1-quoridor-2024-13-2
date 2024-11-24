@@ -1,21 +1,18 @@
-#include <stdio.h>
-#include "gestionJeu.h"
-#include "affichage.h"
 
 /////////////////////////////////////
 // Nom du Sous-programme : Menu
-// Role : permet au joueur de choisir ce qu'il souhaite faire avant de lancer la partie 
+// Role : permet au joueur de choisir ce qu'il souhaite faire
 /////////////////////////////////////
-int Menu () ; {
+int Menu () {
     int choixDuJoueur;
-    int nbJoueurs;
+    int NB_JOUEURS;
     do {
         afficherMenu();
         printf("Entrer votre choix : \n");
         scanf("%d", &choixDuJoueur);
         switch (choixDuJoueur) {
             case 1:
-                nouvellePartie(nombreJoueurs);
+                nouvellePartie(NB_JOUEURS);
             break;
             case 2:
                 partieSauvegardee();
@@ -181,7 +178,7 @@ void annulerCoup(etatJeu *positionPion, char dernierCoup) {
 // Nom du Sous-programme : passerTour
 // Role : lorsque le joueur joue et le demande il peut passer son tour
 ////////////////////////////////////
-void passerTour (etatJeu *etatJeu) {
+void passerTour (etatJeu *etatJeu, NB_JOUEURS_MAX) {
         etatJeu->joueurActuel++;
         if (etatJeu-> joueurActuel > NB_JOUEURS_MAX) {
             etatJeu-> joueurActuel =0;
