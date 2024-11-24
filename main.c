@@ -4,7 +4,7 @@
 
 /////////////////////////////////////
 // Nom du Sous-programme : Menu
-// Role : permet au joueur de choisir ce qu'il souhaite faire
+// Role : permet au joueur de choisir ce qu'il souhaite faire avant de lancer la partie 
 /////////////////////////////////////
 int Menu () ; {
     int choixDuJoueur;
