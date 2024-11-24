@@ -2,6 +2,71 @@
 #include "gestionJeu.h"
 #include "affichage.h"
 
+/////////////////////////////////////
+// Nom du Sous-programme : Menu
+// Role : permet au joueur de choisir ce qu'il souhaite faire
+/////////////////////////////////////
+int Menu () ; {
+    int choixDuJoueur;
+    int nombreJoueurs;
+    do {
+        afficherMenu();
+        printf("Entrer votre choix : \n");
+        scanf("%d", &choixDuJoueur);
+        switch (choixDuJoueur) {
+            case 1:
+                nouvellePartie(nombreJoueurs);
+            break;
+            case 2:
+                partieSauvegardee();
+            break;
+            case 3:
+                afficherAide();
+            break;
+            case 4:
+                afficherScoresJoueurs();
+            break;
+            case 5:
+                quitterJeu();
+            break;
+            default:
+                printf("Choix incorrecte, veuillez reessayer en selectionnant une option valide : \n");
+            scanf("%d", &choixDuJoueur);
+            break;
+        }
+    } while (choixDuJoueur < 1 || choixDuJoueur > 5);
+    return 0;
+}
+
+////////////////////////////////
+// Nom du Sous-programme : menuPartie
+// Role : permet au joueur de choisir l'action à effectuer lorsque c'est à son tour de joueur
+////////////////////////////////
+int menuPartie () {
+    int choixTour;
+    do {
+        afficherMenuPartie();
+        scanf("%d", &choixTour);
+        switch (choixTour) {
+            case 1:
+                deplacementPion();
+            break;
+            case 2:
+                poserBarrieres();
+            break;
+            case 3:
+                passerTour();
+            break;
+            case 4:
+                annulerCoup();
+            break;
+            default:
+                printf("Choisir une action parmi celles proposees \n");
+            break;
+        }
+    } while (choixTour < 1 || choixTour > 4);
+}
+
 ///////////////////////////////////////
 // Nom du sous-programme : zoneStockage
 // Rôle : Attribue une zone de stockage de barrieres à chaque joueur avec une répartition équitable
