@@ -2,7 +2,8 @@
 #define SUAVEGARDE_H
 void sauvegardeScores (const char *fichierScoresJoueurs); 
 void chargementScores (const char *fichierScores Joueurs); 
-void miseAJourScores (const char *fichierScoresJoueurs, pointsGagnes, gagne); 
+void miseAJourScores (const char *fichierScoresJoueurs, pointsGagnes, gagne);
+void sauvegarderPartie(Quoridor *jeu);
 #endif //SAUVEGARDE_H
 
 
