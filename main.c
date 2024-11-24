@@ -38,6 +38,7 @@ void chargementScores (const char *fichierScoresJoueurs) {
 //////////////////////////////
 void miseAJourScores(const char *fichierScoresJoueurs, int pointsGagnes, int gagne) {
     FILE *fichierScoresJoueurs;
+    printf("\n===%c Scores des joueurs %c===\n ", 0x03, 0x03);
     for (int i =0; i< nbJoueurs; i++)
         if(joueurs[i]=gagne) {
             pointsgagnes =5;
