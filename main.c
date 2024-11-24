@@ -144,7 +144,7 @@ void couleur() {
 // Rôle : Demande et affiche le caractere choisi pour le pion de chaque joueur 
 ///////////////////////////////////////
 void caracterePion (int nb_joueur, char* car_pion){ 
-nb_joueur = saisirJoueur ()
+nb_joueur = saisirJoueurs ()
 char car_pion;
   for (int i=0; i<nb_joueur; i++) {
     do {
