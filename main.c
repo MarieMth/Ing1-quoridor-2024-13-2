@@ -1,5 +1,8 @@
 #ifndef AFFICHAGE_H
 #define AFFICHAGE_H
+#include "gestionDuJeu.h"
+#define NB_LIGNES 9
+#define NB_COLONNES 9
 
 void positionPions (char plateau[17][17], int nb_joueurs);
 void caracterePion (int nb_joueur, char* car_pion);
