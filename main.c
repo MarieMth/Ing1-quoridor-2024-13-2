@@ -84,7 +84,7 @@ void zoneStockage (int nbJjoueurs, int stockage[]) { //zone de stockage attribu√
   }
   for (int i=0; i<nb_barrieres; i++) {
     stockage[i] = nb_barrieres;
-    printf("Joueur %d a %d barrieres\n", i + 1, stockage [i]; //affichage du nombre de barrieres par joueur
+    printf("Joueur %d a %d barrieres\n", i + 1, stockage [i]); //affichage du nombre de barrieres par joueur
   }
 }
 
