@@ -72,6 +72,21 @@ int menuPartie () {
 }
 
 ///////////////////////////////////////
+// Nom du sous-programme : nouvellePartie
+// Rôle : Réinitialise le plateau et affiche le menu de la partie pour que le joueur puisse commencer à jouer
+///////////////////////////////////////
+void nouvellePartie(int nbJoueurs) {
+    char plateau[17][17];
+    int i = 0, j = 0;
+    initialisationPlateau(plateau, nbJoueurs);
+    positionPions(plateau, nbJoueurs);
+    while (1) {
+        refreshScreen(plateau);
+        afficherMenuPartie(plateau, &i, &j);
+    }
+}
+
+///////////////////////////////////////
 // Nom du sous-programme : zoneStockage
 // Rôle : Attribue une zone de stockage de barrieres à chaque joueur avec une répartition équitable
 ///////////////////////////////////////
