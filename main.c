@@ -150,3 +150,24 @@ int estTableauIdentique(char plateau1[17][17], char plateau2[17][17]) {
     return identique;
 }
 
+//////////////////////////////////
+// Nom du Sous-programme : annulerCoup
+// Role : permet lorsque c'est au tour d'un joueur de jouer d'annuler le dernier coup s'il le demande
+//////////////////////////////////
+int tailleHistoriqueCoup = 0;
+char historiqueCoup[];
+void annulerCoup(etatJeu *positionPion, char dernierCoup) {
+    if (tailleHistoriqueCoup > 0) {
+        tailleHistoriqueCoup --;
+        if (dernierCoup.type == 'D'){
+            etatJeu -> positionPion--;
+            printf("Joueur %d votre coup ete annule \n", etatJeu->JoueurActuel);
+        }else if (dernierCoup.type == 'B') {
+            etatJeu -> plateauActuel--;
+            printf("Joueur %d votre mur a ete enleve\n", etatJeu->joueurActuel);
+        }
+    }
+    else {
+        printf("Il n'y a aucun coup a annuler \n");
+    }
+}
