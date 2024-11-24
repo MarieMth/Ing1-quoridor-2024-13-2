@@ -190,20 +190,24 @@ void affichePlateau(char plateau[17][17]) {
     }
 }
 
-///////////////////////////////////////
-// Nom du sous-programme : positionPions
-// Rôle : permet de positionner les pions au début de la partie selon le nombre de joueur
-///////////////////////////////////////
-void positionPions (char plateau[17][17], int nbJoueurs){ 
-  if (nbJoueurs == 2) {  // si le nombre de joueurs est 2 on doit placer les pions l'un en face de l'autre
-    plateau[0][4] = '1';
-    plateau[8][4] = '2';
-  } else {  // si le nombre de joueurs est 4 on place un pion à chaque extrémité du plateau
-    plateau[0][0] = '1';
-    plateau[0][8] = '2';
-    plateau[8][0] = '3';
-    plateau[8][8] = '4';
-  }
+void initialiserPlateau(char plateau[17][17], int nbJoueurs, char carPion[]) {
+    // Initialisation du plateau avec des cases vides (0)
+    for (int i = 0; i < 17; i++) {
+        for (int j = 0; j < 17; j++) {
+            plateau[i][j] = 0;  // Case vide
+        }
+    }
+
+    // Placement des pions sur le plateau
+    if (nbJoueurs == 2) {
+        plateau[0][8] = carPion[0];  // Le premier joueur sur la case (0,8)
+        plateau[16][8] = carPion[1]; // Le deuxième joueur sur la case (16,8)
+    } else if (nbJoueurs == 4) {
+        plateau[0][0] = carPion[0];  // Le premier joueur sur le coin (0,0)
+        plateau[0][16] = carPion[1]; // Le deuxième joueur sur le coin (0,16)
+        plateau[16][0] = carPion[2]; // Le troisième joueur sur le coin (16,0)
+        plateau[16][16] = carPion[3]; // Le quatrième joueur sur le coin (16,16)
+    }
 }
 
 ///////////////////////////////////////
