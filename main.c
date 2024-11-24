@@ -22,7 +22,7 @@ int Menu () {
                 nouvellePartie(NB_JOUEURS);
             break;
             case 2:
-                partieSauvegardee();
+                sauvegarderPartie(Quoridor *jeu);
             break;
             case 3:
                 afficherAide();
