@@ -2,6 +2,22 @@
 #include "gestionJeu.h"
 #include "affichage.h"
 
+///////////////////////////////////////
+// Nom du sous-programme : zoneStockage
+// Rôle : Attribue une zone de stockage de barrieres à chaque joueur avec une répartition équitable
+///////////////////////////////////////
+void zoneStockage (int nbJjoueurs, int stockage[]) { //zone de stockage attribuée à chaque joueur avec une répartition équitable de barrieres
+  int nb_barrieres;
+  if (nbJjoueurs == 2) {
+    nb_barrieres = 10;
+  } else {
+    nb_barrieres = 5;
+  }
+  for (int i=0; i<nb_barrieres; i++) {
+    stockage[i] = nb_barrieres;
+    printf("Joueur %d a %d barrieres\n", i + 1, stockage [i]; //affichage du nombre de barrieres par joueur
+  }
+}
 
 void initialisationPlateau(char plateau[17][17], char nbJoueurs) {
     for (int i=0; i<17; i++)
