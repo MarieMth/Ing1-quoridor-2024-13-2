@@ -1,4 +1,4 @@
-#include <stdio.h>
+include <stdio.h>
 #include <windows.h>
 #include <conio.h>
 #include "affichage.h"
@@ -40,8 +40,8 @@ void quitterJeu ()  {
 // Nom du Sous-programme : afficherMenuPartie 
 // Role : affiche un menu entre le tour de chaque joueur afin de lui proposer les actions possibles
 ////////////////////////////////
-void afficherMenuPartie () {
-    struct joueurs Joueurs[nbJoueurs];
+void afficherMenuPartie (int NB_JOUEURS) {
+    struct joueurs Joueurs[NB_JOUEURS];
     printf("Joueur %d c'est à votre tour de jouer \n", etatJeu -> joueurActuel+1);
     printf("Que choisissez vous de faire ? : \n");
     printf("1. Déplacer votre pion \n");
@@ -124,16 +124,17 @@ void couleur() {
   do {  //boucle pour vérifier si la couleur est bien comprise dans celles proposées
     printf ("Choisissez la couleur des cases, des barrieres et des pions entre 1 et 9\n");
     scanf ("Couleur des cases: %d, couleur des barrieres: %d et couleur des pions:%d", &choixCases, &choixBarrieres, &choixPions);
-  } while (choixasCases<1 || choixCases>9 || choixBarrieres<1 || choixBarrieres>9 || choixPions<1 || choixPions>9);
-  Color (choixCases, choixBarrieres, choixPions);
+  } while (choixCases<1 || choixCases>9 || choixBarrieres<1 || choixBarrieres>9 || choixPions<1 || choixPions>9);
+  Color (choixCases, choixBarrieres);
 }
 
 ///////////////////////////////////////
 // Nom du sous-programme : caracterePion
 // Rôle : Demande et affiche le caractere choisi pour le pion de chaque joueur 
 ///////////////////////////////////////
+
 void caracterePion (int nbJoueur, char* carPion){ 
-nbJoueur = saisirJoueurs ()
+nbJoueur = saisirJoueurs ();
 char carPion;
   for (int i=0; i<nbJoueur; i++) {
     do {
@@ -193,7 +194,7 @@ void affichePlateau(char plateau[17][17]) {
 // Nom du sous-programme : positionPions
 // Rôle : permet de positionner les pions au début de la partie selon le nombre de joueur
 ///////////////////////////////////////
-void positionPions (char plateau[17][17], int nbJoueurs{ 
+void positionPions (char plateau[17][17], int nbJoueurs){ 
   if (nbJoueurs == 2) {  // si le nombre de joueurs est 2 on doit placer les pions l'un en face de l'autre
     plateau[0][4] = '1';
     plateau[8][4] = '2';
@@ -374,9 +375,9 @@ void placementPremiereBarriere(int* i, int* j, int choix) {
 // Nom du Sous-programme : placementDeuxiemeBarriere
 // Role : Permet aux joueurs de placer une barriere
 /////////////////////////////////////
-void placementDeuxiemeBarriere(int iFirst, int jFirst, int* iLast, int* jLast, int choix) {
-    switch(choix) {
 
+int placementDeuxiemeBarriere(int iFirst, int jFirst, int* iLast, int* jLast, int choix) {
+    switch(choix) {
         case 'h':
             if ((jFirst%2==1) && (iFirst>1)){
                 *iLast=iFirst-2;
@@ -425,4 +426,3 @@ void refreshScreen(char plateau[17][17]) {
     affichePlateau(plateau);
     afficheMenuJeu();
 }
-
