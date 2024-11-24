@@ -93,6 +93,21 @@ void affichePlateau(char plateau[17][17]) {
     }
 }
 
+///////////////////////////////////////
+// Nom du sous-programme : positionPions
+// Rôle : permet de positionner les pions au début de la partie selon le nombre de joueur
+///////////////////////////////////////
+void position_pions (char plateau[LIGNES][COLONNES], int nb_joueurs{ 
+  if (nb_joueurs == 2) {  // si le nombre de joueurs est 2 on doit placer les pions l'un en face de l'autre
+    plateau[0][4] = '1';
+    plateau[8][4] = '2';
+  } else {  // si le nombre de joueurs est 4 on place un pion à chaque extrémité du plateau
+    plateau[0][0] = '1';
+    plateau[0][8] = '2';
+    plateau[8][0] = '3';
+    plateau[8][8] = '4';
+  }
+}
 
 ///////////////////////////////////////
 // Nom du sous-programme : afficheBarriereV
