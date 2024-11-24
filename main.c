@@ -41,7 +41,7 @@ void quitterJeu ()  {
 // Role : affiche un menu entre le tour de chaque joueur afin de lui proposer les actions possibles
 ////////////////////////////////
 void afficherMenuPartie () {
-    struct joueurs Joueurs[NB_JOUEURS];
+    struct joueurs Joueurs[nbJoueurs];
     printf("Joueur %d c'est à votre tour de jouer \n", etatJeu -> joueurActuel+1);
     printf("Que choisissez vous de faire ? : \n");
     printf("1. Déplacer votre pion \n");
