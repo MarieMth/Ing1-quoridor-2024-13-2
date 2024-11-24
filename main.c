@@ -1,3 +1,9 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include "gestionDuJeu.h"
+#include "sauvegarde.h"
+
 
 /////////////////////////////////////
 // Nom du Sous-programme : Menu
@@ -21,7 +27,7 @@ int Menu () {
                 afficherAide();
             break;
             case 4:
-                afficherScoresJoueurs();
+                miseAJourScores(fichierScoresJoueurs, pointsGagnes, gagne);
             break;
             case 5:
                 quitterJeu();
