@@ -121,7 +121,7 @@ SetConsoleTextAttribute(H,couleurDeFond*16+couleurDuTexte);
 // Rôle : Affiche la couleur des cases, barrieres et pions 
 ///////////////////////////////////////
 void couleur() { 
-  int choix_cases, choix_barrieres, choix_pions;
+  int choixCases, choixBarrieres, choixPions;
   printf ("Voici les couleurs que vous pouvez choisir pour votre texte et votre fond:\n");
   printf("1. Noir\n");
   printf("2. Blanc\n");
@@ -134,9 +134,9 @@ void couleur() {
   printf("9. Jaune\n");
   do {  //boucle pour vérifier si la couleur est bien comprise dans celles proposées
     printf ("Choisissez la couleur des cases, des barrieres et des pions entre 1 et 9\n");
-    scanf ("Couleur des cases: %d, couleur des barrieres: %d et couleur des pions:%d", &choix_cases, &choix_barrieres, &choix_pions);
-  } while (choix_cases<1 || choix_cases>9 || choix_barrieres<1 || choix_barrieres>9 || choix_pions<1 || choix_pions>9);
-  Color (choix_cases, choix_barrieres, choix_pions);
+    scanf ("Couleur des cases: %d, couleur des barrieres: %d et couleur des pions:%d", &choixCases, &choixBarrieres, &choixPions);
+  } while (choixasCaes<1 || choixCaases>9 || choixBarrieres<1 || choixParrieres>9 || choixPions<1 || choix°ions>9);
+  Color (choixCases, choixBarrieres, choixPions);
 }
 
 ///////////////////////////////////////
@@ -204,8 +204,8 @@ void affichePlateau(char plateau[17][17]) {
 // Nom du sous-programme : positionPions
 // Rôle : permet de positionner les pions au début de la partie selon le nombre de joueur
 ///////////////////////////////////////
-void position_pions (char plateau[LIGNES][COLONNES], int nb_joueurs{ 
-  if (nb_joueurs == 2) {  // si le nombre de joueurs est 2 on doit placer les pions l'un en face de l'autre
+void positionPions (char plateau[LIGNES][COLONNES], int nbJoueurs{ 
+  if (nbJoueurs == 2) {  // si le nombre de joueurs est 2 on doit placer les pions l'un en face de l'autre
     plateau[0][4] = '1';
     plateau[8][4] = '2';
   } else {  // si le nombre de joueurs est 4 on place un pion à chaque extrémité du plateau
