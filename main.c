@@ -48,6 +48,34 @@ void afficheLabels() {
     }
 }
 
+
+
+///////////////////////////////////////
+// Nom du sous-programme : couleur
+// Rôle : Affiche la couleur des cases, barrieres et pions 
+// In : plateau : tableau qui correspond aux valeurs du plateau
+///////////////////////////////////////
+void couleur() { 
+  int choix_cases, choix_barrieres, choix_pions;
+  printf ("Voici les couleurs que vous pouvez choisir pour votre texte et votre fond:\n");
+  printf("1. Noir\n");
+  printf("2. Blanc\n");
+  printf("3. Violet\n");
+  printf("4. Bleu\n");
+  printf("5. Vert\n");
+  printf("6. Rose\n");
+  printf("7. Rouge\n");
+  printf("8. Orange\n");
+  printf("9. Jaune\n");
+  do {  //boucle pour vérifier si la couleur est bien comprise dans celles proposées
+    printf ("Choisissez la couleur des cases, des barrieres et des pions entre 1 et 9\n");
+    scanf ("Couleur des cases: %d, couleur des barrieres: %d et couleur des pions:%d", &choix_cases, &choix_barrieres, &choix_pions);
+  } while (choix_cases<1 || choix_cases>9 || choix_barrieres<1 || choix_barrieres>9 || choix_pions<1 || choix_pions>9);
+  Color (choix_cases, choix_barrieres, choix_pions);
+}
+
+
+
 ///////////////////////////////////////
 // Nom du sous-programme : affichePlateau
 // Rôle : Affiche lecontenu du plateau
