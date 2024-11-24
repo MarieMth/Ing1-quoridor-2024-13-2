@@ -49,5 +49,5 @@ int menuPartie(choixTour);
 void nouvellePartie(int nbJoueurs);
 void passerTour(etatJeu *etatJeu);
 void annulerCoup (etatJeu *positionPion, dernierCoup);
-
+void nbJoueurs(NB_JOUEURS); 
 #endif //GESTIONJEU_H
