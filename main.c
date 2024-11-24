@@ -5,8 +5,8 @@ typedef struct {
     int iFirst, jFirst, iLast, jLast;
 } Position;
 
-void zone_stockage (int nb_joueurs, int stockage[]);
-void comptage_barrieres(int joueur, int stockage[], int nb_joueurs);
+void zoneStockage (int nb_joueurs, int stockage[]);
+void comptageBarrieres(int joueur, int stockage[], int nb_joueurs);
 void initialisationPlateau(char plateau[17][17], char nbJoueurs);
 void recopierTableau(char plateauARecopier[17][17], char plateau[17][17]);
 int validerPositionBarrieres(char plateau[17][17], Position barriere);
