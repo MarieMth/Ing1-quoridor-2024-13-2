@@ -149,7 +149,7 @@ char carPion;
 // Nom du sous-programme : positionPions
 // Rôle : Placement des pions au début de la partie en fonction du nombre de joueur 
 ///////////////////////////////////////
-void positionPions (char plateau[17][17], int nbJoueurs{ 
+void positionPions (char plateau[17][17], int nbJoueurs){ 
   if (nbJoueurs == 2) {  // si le nombre de joueurs est 2 on doit placer les pions l'un en face de l'autre
     plateau[0][4] = '1';
     plateau[8][4] = '2';
@@ -161,7 +161,10 @@ void positionPions (char plateau[17][17], int nbJoueurs{
   }
 }
 
-
+///////////////////////////////////////
+// Nom du sous-programme : affichePlateau
+// Rôle : Affiche plateau sur la console 
+///////////////////////////////////////
 void affichePlateau(char plateau[17][17]) {
     int i=0, j=0;
     int ligne=7;
@@ -205,6 +208,11 @@ void affichePlateau(char plateau[17][17]) {
         color(15,0);  // Réinitialisation de la couleur pour chaque ligne
     }
 }
+
+///////////////////////////////////////
+// Nom du sous-programme : initialiserPlateau
+// Rôle : Le plateau est initilaisé, on ne prends plus en compte le déplacement des pions et des barrières de la partie précédente
+///////////////////////////////////////
 void initialiserPlateau(char plateau[17][17], int nbJoueurs, char carPion[]) {
     // Initialisation du plateau avec des cases vides (0)
     for (int i = 0; i < 17; i++) {
