@@ -1,4 +1,6 @@
-#include <stdio.h>
+#ifndef AFFICHAGE_H
+#define AFFICHAGE_H
+
 void position_pions (char plateau[LIGNES][COLONNES], int nb_joueurs);
 void caractere_pion (int nb_joueur, char* car_pion);
 void gotoligcol(int lig, int col);
@@ -9,3 +11,21 @@ void afficherAide();
 void afficherScoresJoueurs(); 
 void quitterJeu(); 
 void afficherMenuPartie(); 
+void gotoligcol( int lig, int col );
+void color(int couleurDuTexte,int couleurDeFond);
+void afficheTitre();
+void afficheLabels();
+void affichePlateau(char plateau[17][17]);
+void afficheMenuJeu();
+void afficheStatutJeu();
+void afficheBarriereV(char plateau[17][17]);
+void afficheBarriereH(char plateau[17][17]);
+int iToligne(int i);
+int iToCol(int j);
+void deplacement(int* i, int* j, int choix);
+void placementPremiereBarriere(int* i, int* j, int choix);
+int placementDeuxiemeBarriere(int iFirst, int jFirst, int* iLast, int* jLast, int choix);
+void refreshScreen(char plateau[17][17]);
+
+
+#endif //AFFICHAGE_H
