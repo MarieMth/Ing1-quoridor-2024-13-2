@@ -1,8 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "affichageDuJeu.h"
-#include "gestionDuJeu.h"
-#include "sauvegardeDuJeu.h"
+#include "affichage.h"
+#include "GestionDuJeu.h"
+#include "Sauvegarde.h"
 
 int main () {
   do {
